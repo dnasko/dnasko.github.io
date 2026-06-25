@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dan Nasko — Staff Data Scientist and Bioinformatics professional based in San Diego, CA." />
+  <title>Dan Nasko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F8F7F4;
+      color: #1A1A1A;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #F8F7F4;
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+      padding: 0 2rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: #888;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #0F6E56; }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      min-height: 80vh;
+      align-items: center;
+      padding: 3.5rem 4rem;
+      gap: 4rem;
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+    }
+    .hero-photo-wrap { position: relative; max-width: 280px; }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: grayscale(20%);
+      display: block;
+    }
+    .hero-photo-accent {
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #0F6E56;
+      z-index: -1;
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #888;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    .hero-name {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .teal-line {
+      display: inline-block;
+      border-bottom: 2px solid #0F6E56;
+      padding-bottom: 2px;
+    }
+    .hero-title {
+      font-size: 14px;
+      color: #0F6E56;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+    }
+    .hero-desc {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #555;
+      max-width: 380px;
+      margin-bottom: 2rem;
+    }
+    .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      padding: 8px 14px;
+      border: 0.5px solid rgba(0,0,0,0.2);
+      transition: all 0.2s;
+    }
+    .hero-link:hover { border-color: #0F6E56; color: #0F6E56; }
+
+    /* SECTIONS */
+    section { padding: 3.5rem 4rem; }
+    .section-alt {
+      background: #fff;
+      border-top: 0.5px solid rgba(0,0,0,0.1);
+      border-bottom: 0.5px solid rgba(0,0,0,0.1);
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: rgba(0,0,0,0.15);
+    }
+
+    /* ABOUT */
+    .about-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #333;
+      max-width: 680px;
+      columns: 2;
+      column-gap: 3rem;
+    }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 0.5px solid rgba(0,0,0,0.08);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-date {
+      font-size: 12px;
+      color: #888;
+      padding-top: 3px;
+      letter-spacing: 0.04em;
+    }
+    .timeline-role { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+    .timeline-company {
+      font-size: 13px;
+      color: #0F6E56;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .timeline-company span { color: #888; font-weight: 400; }
+    .timeline-desc { font-size: 13px; line-height: 1.7; color: #555; }
+
+    /* RESEARCH */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+    .project-card {
+      background: #F8F7F4;
+      padding: 1.5rem;
+      transition: background 0.2s;
+    }
+    .project-card:hover { background: #fff; }
+    .project-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .project-title a:hover { color: #0F6E56; }
+    .project-title .ext {
+      font-size: 12px;
+      color: #888;
+    }
+    .project-desc { font-size: 12px; line-height: 1.6; color: #666; }
+
+    /* SKILLS */
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+    }
+    .skill-pill {
+      font-size: 12px;
+      padding: 10px 16px;
+      border: 0.5px solid rgba(0,0,0,0.15);
+      letter-spacing: 0.04em;
+      color: #444;
+      transition: all 0.2s;
+    }
+    .skill-pill:hover { border-color: #0F6E56; color: #0F6E56; }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 4rem;
+      border-top: 0.5px solid rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-left { font-size: 12px; color: #999; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 12px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #0F6E56; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 2rem;
+        gap: 2rem;
+      }
+      .hero-photo-wrap { max-width: 200px; }
+      .about-text { columns: 1; }
+      section { padding: 2.5rem 2rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .nav-links { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-name">DN</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="assets/images/profile_pic.png" alt="Dan Nasko" />
+      <div class="hero-photo-accent"></div>
+    </div>
+    <div class="hero-text">
+      <p class="hero-eyebrow">San Diego, CA</p>
+      <h1 class="hero-name"><span class="teal-line">Dan Nasko</span></h1>
+      <p class="hero-title">Staff Data Scientist &middot; Bioinformatics</p>
+      <p class="hero-desc">Experienced bioinformatics and data science professional bridging complex biological datasets and actionable insight &mdash; in pharma, biotech, and beyond.</p>
+      <div class="hero-links">
+        <a class="hero-link" href="assets/images/Daniel_Nasko_CV.pdf" target="_blank">&#8595; CV</a>
+        <a class="hero-link" href="https://www.linkedin.com/in/dan-nasko-49776124" target="_blank">LinkedIn</a>
+        <a class="hero-link" href="https://www.github.com/dnasko" target="_blank">GitHub</a>
+        <a class="hero-link" href="https://bsky.app/profile/dnasko.bsky.social" target="_blank">Bluesky</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-label">About</div>
+    <p class="about-text">I'm an experienced bioinformatics and data science professional with 6+ years of industrial experience working in computational biology. I specialize in analyzing complex biological datasets to drive innovation in biotech and pharma &mdash; skilled in machine learning, statistical modeling, and programming in Python, R, and SQL. I hold a PhD in Bioinformatics and Data Science from the University of Delaware and a BSc in Pharmaceutical Product Development from West Chester University. Outside the lab, you'll find me cycling, hiking, or spending time with my dogs.</p>
+  </section>
+
+  <section id="experience" class="section-alt">
+    <div class="section-label">Experience</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-date">2022 &ndash; Present</span>
+        <div>
+          <div class="timeline-role">Staff Bioinformatics Scientist</div>
+          <div class="timeline-company">PacBio &middot; San Diego &amp; Menlo Park</div>
+          <p class="timeline-desc">Develop bioinformatics workflows for secondary analysis of NGS data across PacBio HiFi, SBB, Illumina, and Nanopore platforms. Support oncology and microbiome research; build visualizations in Python and R Markdown for variant calling performance evaluation.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-date">2021 &ndash; 2022</span>
+        <div>
+          <div class="timeline-role">Senior Data Scientist</div>
+          <div class="timeline-company">Novozymes &middot; San Diego &amp; Davis</div>
+          <p class="timeline-desc">Built automated, data science-driven infrastructure for microbiome research integrating metagenomics, 16S, metabolomics, and metatranscriptomics. Led biological discovery of novel bacterial and phage probiotic candidates from human and animal gut samples.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-date">2019 &ndash; 2021</span>
+        <div>
+          <div class="timeline-role">Senior Data Scientist</div>
+          <div class="timeline-company">Biota Technology &middot; San Diego <span>(Acquired by Novozymes 2021)</span></div>
+          <p class="timeline-desc">Applied machine learning to microbial signatures from subsurface samples to trace reservoir connectivity, assess production potential, and optimize resource management strategies in energy exploration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="section-label">Research</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-title">
+          <a href="https://link.springer.com/article/10.1186/s13059-022-02695-x" target="_blank">SeqScreen <span class="ext">&#8599;</span></a>
+        </div>
+        <p class="project-desc">Rapid and robust characterization of unknown pathogenic DNA/RNA sequences.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <a href="https://journals.asm.org/doi/full/10.1128/mbio.02651-18" target="_blank">CRISPRs <span class="ext">&#8599;</span></a>
+        </div>
+        <p class="project-desc">Identifying novel CRISPR families from environmental samples.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <a href="https://link.springer.com/article/10.1186/s13059-018-1554-6" target="_blank">Database Influence <span class="ext">&#8599;</span></a>
+        </div>
+        <p class="project-desc">Examining how database composition affects k-mer-based taxonomic classification over time.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <a href="https://link.springer.com/article/10.4056/sigs.2945050" target="_blank">VIROME <span class="ext">&#8599;</span></a>
+        </div>
+        <p class="project-desc">Viral metagenomics pipeline and web app to explore viral diversity in environmental samples.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <a href="https://www.sciencedirect.com/science/article/abs/pii/S0043135419310243" target="_blank">Irrigation Water <span class="ext">&#8599;</span></a>
+        </div>
+        <p class="project-desc">Shotgun metagenomic characterization of microbial communities in crop irrigation water sources.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-title">
+          <a href="https://github.com/dnasko/dna_pola_762_caller" target="_blank">DNA Pol A 762 <span class="ext">&#8599;</span></a>
+        </div>
+        <p class="project-desc">Tool for predicting viral replication strategy via DNA polymerase analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section-alt">
+    <div class="section-label">Skills</div>
+    <div class="skills-wrap">
+      <div class="skill-pill">Python &amp; Jupyter</div>
+      <div class="skill-pill">R &amp; ggplot2</div>
+      <div class="skill-pill">SQL &amp; MongoDB</div>
+      <div class="skill-pill">Snakemake &amp; Nextflow</div>
+      <div class="skill-pill">Scikit-learn &amp; Keras</div>
+      <div class="skill-pill">Bioinformatics Pipelines</div>
+      <div class="skill-pill">Machine Learning</div>
+      <div class="skill-pill">Statistical Modeling</div>
+      <div class="skill-pill">NGS Data Analysis</div>
+      <div class="skill-pill">Metagenomics</div>
+      <div class="skill-pill">Matplotlib &amp; Seaborn</div>
+      <div class="skill-pill">Viral Metagenomics</div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <span class="footer-left">dan.nasko@gmail.com &middot; San Diego, CA</span>
+    <div class="footer-links">
+      <a href="assets/images/Daniel_Nasko_CV.pdf" target="_blank">&#8595; CV</a>
+      <a href="https://www.linkedin.com/in/dan-nasko-49776124" target="_blank">LinkedIn</a>
+      <a href="https://www.github.com/dnasko" target="_blank">GitHub</a>
+      <a href="mailto:dan.nasko@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
