@@ -187,9 +187,14 @@
         font-size: 15px;
         line-height: 1.85;
         color: #333;
-        max-width: 680px;
-        columns: 2;
-        column-gap: 3rem;
+      }
+
+      .about-text p {
+        margin-bottom: 1.25rem;
+      }
+
+      .about-text p:last-child {
+        margin-bottom: 0;
       }
 
       /* TIMELINE */
@@ -355,6 +360,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
+        <a href="#leadership">Leadership</a>
         <a href="#research">Research</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -369,10 +375,14 @@
       <div class="hero-text">
         <p class="hero-eyebrow">San Diego, CA</p>
         <h1 class="hero-name"><span class="teal-line">Dan Nasko, PhD</span></h1>
-        <p class="hero-title">Staff Data Scientist &middot; Bioinformatics</p>
+        <p class="hero-title">
+          Staff Bioinformatics Scientist &middot; Genomics Expert &middot; Scientific Consultant
+        </p>
         <p class="hero-desc">
-          Experienced bioinformatics and data science professional bridging complex biological
-          datasets and actionable insight &mdash; in pharma, biotech, and beyond.
+          Staff Bioinformatics Scientist with 8+ years of industry experience in genomics,
+          metagenomics, and long-read sequencing &mdash; building pipelines, publishing research,
+          and translating complex biological data into actionable insight across biotech, pharma,
+          and litigation consulting.
         </p>
         <div class="hero-links">
           <a class="hero-link" href="assets/images/Daniel_Nasko_CV.pdf" target="_blank">
@@ -395,26 +405,39 @@
 
     <section id="about">
       <div class="section-label">About</div>
-      <p class="about-text">
-        I'm a bioinformatics scientist and data science leader with 8+ years of industry experience
-        building computational infrastructure at the intersection of genomics, machine learning, and
-        biological discovery. At PacBio, I lead bioinformatics software development across R&D,
-        marketing, and field support — developing analytical pipelines and evaluation frameworks for
-        HiFi long-read sequencing, variant calling, oncology, and microbiome research. I've shipped
-        tools used by customers and internal teams alike, and served as Software NPT Lead,
-        coordinating cross-functional product development from concept to deployment. Before PacBio,
-        I drove machine learning-based discovery at Novozymes and Biota Technology — applying
-        metagenomic signatures to probiotic development and energy exploration, respectively.
-        Earlier in my career I contributed to foundational research in viral metagenomics, pathogen
-        characterization, and CRISPR biology, resulting in 22 peer-reviewed publications and an
-        H-index of 13. I hold a PhD in Bioinformatics and Systems Biology from the University of
-        Delaware, where I was among the first graduates of the program, and a BSc in Pharmaceutical
-        Product Development from West Chester University. Beyond my primary industry work, I provide
-        scientific consulting and expert witness services in genomics litigation — bringing
-        peer-reviewed expertise and hands-on sequencing experience to cases involving pathogen
-        attribution, NGS data interpretation, and computational biology methodology. Outside the
-        lab, you'll find me cycling, hiking, or spending time with my dogs.
-      </p>
+      <div class="about-text">
+        <p>
+          I'm a bioinformatics scientist and data science leader with 8+ years of industry
+          experience building computational infrastructure at the intersection of genomics, machine
+          learning, and biological discovery.
+        </p>
+        <p>
+          At PacBio, I lead bioinformatics software development across R&amp;D, marketing, and field
+          support &mdash; developing analytical pipelines and evaluation frameworks for HiFi
+          long-read sequencing, variant calling, oncology, and microbiome research. I've shipped
+          tools used by customers and internal teams alike, and served as Software NPT Lead,
+          coordinating cross-functional product development from concept to deployment.
+        </p>
+        <p>
+          Before PacBio, I drove machine learning-based discovery at Novozymes and Biota Technology
+          &mdash; applying metagenomic signatures to probiotic development and energy exploration,
+          respectively. Earlier in my career I contributed to foundational research in viral
+          metagenomics, pathogen characterization, and CRISPR biology, resulting in 22 peer-reviewed
+          publications and an H-index of 13.
+        </p>
+        <p>
+          I hold a PhD in Bioinformatics and Systems Biology from the University of Delaware, where
+          I was among the first graduates of the program, and a BSc in Pharmaceutical Product
+          Development from West Chester University.
+        </p>
+        <p>
+          Beyond my primary industry work, I provide scientific consulting and expert witness
+          services in genomics litigation &mdash; bringing peer-reviewed expertise and hands-on
+          sequencing experience to cases involving pathogen attribution, NGS data interpretation,
+          and computational biology methodology.
+        </p>
+        <p>Outside the lab, you'll find me cycling, hiking, or spending time with my dogs.</p>
+      </div>
     </section>
 
     <section id="experience" class="section-alt">
@@ -465,46 +488,54 @@
     </section>
 
     <section id="leadership">
-      <h2>Leadership &amp; Impact</h2>
-
-      <div class="leadership-item">
-        <h3>
-          Software NPT Lead &mdash; PacBio
-          <span class="years">2022&ndash;Present</span>
-        </h3>
-        <p>
-          Serve as the bioinformatics lead for New Product Teams at PacBio, coordinating software
-          development priorities across R&amp;D, product marketing, and field application science.
-          Bridge scientific requirements and customer-facing workflows to ensure analytical tools
-          meet both performance benchmarks and real-world usability standards.
-        </p>
-      </div>
-
-      <div class="leadership-item">
-        <h3>Cross-Platform Pipeline Development</h3>
-        <p>
-          Designed and maintained bioinformatics workflows spanning PacBio HiFi, Illumina, and
-          Oxford Nanopore Technologies &mdash; enabling multi-platform performance benchmarking used
-          in competitive product positioning and customer evaluations.
-        </p>
-      </div>
-
-      <div class="leadership-item">
-        <h3>Open-Source Tool Development</h3>
-        <p>
-          Author and maintainer of the
-          <a href="https://github.com/dnasko/dna_pola_762_caller" target="_blank">
-            DNA Pol A 762 Caller
-          </a>
-          , a published tool for predicting viral replication strategy via polymerase analysis.
-          Contributor to
-          <a href="https://link.springer.com/article/10.1186/s13059-022-02695-x" target="_blank">
-            SeqScreen
-          </a>
-          , a genome surveillance tool featured in
-          <em>Genome Biology</em>
-          (2022).
-        </p>
+      <div class="section-label">Leadership &amp; Impact</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div style="grid-column: 1 / -1">
+            <div class="timeline-role">Software NPT Lead</div>
+            <div class="timeline-company">PacBio &middot; San Diego &amp; Menlo Park</div>
+            <p class="timeline-desc">
+              Serve as the bioinformatics lead for New Product Teams, coordinating software
+              development priorities across R&amp;D, product marketing, and field application
+              science. Bridge scientific requirements and customer-facing workflows to ensure
+              analytical tools meet both performance benchmarks and real-world usability standards.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div style="grid-column: 1 / -1">
+            <div class="timeline-role">Cross-Platform Pipeline Development</div>
+            <div class="timeline-company">PacBio &middot; San Diego &amp; Menlo Park</div>
+            <p class="timeline-desc">
+              Designed and maintained bioinformatics workflows spanning PacBio HiFi, Illumina, and
+              Oxford Nanopore Technologies &mdash; enabling multi-platform performance benchmarking
+              used in competitive product positioning and customer evaluations.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div style="grid-column: 1 / -1">
+            <div class="timeline-role">Open-Source Tool Development</div>
+            <div class="timeline-company">GitHub &middot; dnasko</div>
+            <p class="timeline-desc">
+              Author and maintainer of the
+              <a href="https://github.com/dnasko/dna_pola_762_caller" target="_blank">
+                DNA Pol A 762 Caller
+              </a>
+              , a published tool for predicting viral replication strategy via polymerase analysis.
+              Contributor to
+              <a
+                href="https://link.springer.com/article/10.1186/s13059-022-02695-x"
+                target="_blank"
+              >
+                SeqScreen
+              </a>
+              , a genome surveillance tool featured in
+              <em>Genome Biology</em>
+              (2022).
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
